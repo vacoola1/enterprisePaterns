@@ -11,7 +11,7 @@ public class TranzactionRecognition {
     public static void doRecognition(int contractId) {
         try {
             Connection db = connectToDatabase();
-            PreparedStatement st = db.prepareStatement("SELECT id, procuct, product.typer AS typer, revenue, date_signed  FROM contracts WHERE id=?");
+            PreparedStatement st = db.prepareStatement("SELECT id, name, typer FROM product");
             st.setInt(1, contractId);
             ResultSet contract = st.executeQuery();
             if (contract.next()) {
